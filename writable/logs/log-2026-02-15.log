@@ -1,0 +1,89 @@
+CRITICAL - 2026-02-15 07:40:38 --> TypeError: CodeIgniter\BaseModel::timeToString(): Argument #1 ($properties) must be of type array, string given, called in C:\xampp\htdocs\post\system\BaseModel.php on line 1876
+[Method: PUT, Route: todo/update/12]
+in SYSTEMPATH\BaseModel.php on line 1765.
+ 1 SYSTEMPATH\BaseModel.php(1876): CodeIgniter\BaseModel->timeToString('New Task 12')
+ 2 SYSTEMPATH\BaseModel.php(1000): CodeIgniter\BaseModel->transformDataToArray('New Task 12', 'update')
+ 3 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], 'New Task 12')
+ 4 APPPATH\Controllers\TodoController.php(96): CodeIgniter\Model->update('12', 'New Task 12')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->update('12')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\post\\public\\index.php')
+CRITICAL - 2026-02-15 07:40:50 --> TypeError: CodeIgniter\BaseModel::timeToString(): Argument #1 ($properties) must be of type array, string given, called in C:\xampp\htdocs\post\system\BaseModel.php on line 1876
+[Method: PUT, Route: todo/update/12]
+in SYSTEMPATH\BaseModel.php on line 1765.
+ 1 SYSTEMPATH\BaseModel.php(1876): CodeIgniter\BaseModel->timeToString('New Task 21')
+ 2 SYSTEMPATH\BaseModel.php(1000): CodeIgniter\BaseModel->transformDataToArray('New Task 21', 'update')
+ 3 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], 'New Task 21')
+ 4 APPPATH\Controllers\TodoController.php(96): CodeIgniter\Model->update('12', 'New Task 21')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->update('12')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\post\\public\\index.php')
+CRITICAL - 2026-02-15 07:42:20 --> TypeError: CodeIgniter\BaseModel::timeToString(): Argument #1 ($properties) must be of type array, string given, called in C:\xampp\htdocs\post\system\BaseModel.php on line 1876
+[Method: PUT, Route: todo/update/12]
+in SYSTEMPATH\BaseModel.php on line 1765.
+ 1 SYSTEMPATH\BaseModel.php(1876): CodeIgniter\BaseModel->timeToString('New Task 21')
+ 2 SYSTEMPATH\BaseModel.php(1000): CodeIgniter\BaseModel->transformDataToArray('New Task 21', 'update')
+ 3 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], 'New Task 21')
+ 4 APPPATH\Controllers\TodoController.php(96): CodeIgniter\Model->update('12', 'New Task 21')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->update('12')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\post\\public\\index.php')
+CRITICAL - 2026-02-15 07:45:25 --> TypeError: CodeIgniter\BaseModel::timeToString(): Argument #1 ($properties) must be of type array, string given, called in C:\xampp\htdocs\post\system\BaseModel.php on line 1876
+[Method: PUT, Route: todo/update/12]
+in SYSTEMPATH\BaseModel.php on line 1765.
+ 1 SYSTEMPATH\BaseModel.php(1876): CodeIgniter\BaseModel->timeToString('New Task 21')
+ 2 SYSTEMPATH\BaseModel.php(1000): CodeIgniter\BaseModel->transformDataToArray('New Task 21', 'update')
+ 3 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], 'New Task 21')
+ 4 APPPATH\Controllers\TodoController.php(96): CodeIgniter\Model->update('12', 'New Task 21')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->update('12')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\post\\public\\index.php')
+CRITICAL - 2026-02-15 11:00:58 --> ErrorException: Undefined array key "ids"
+[Method: POST, Route: todo/mark-done-bulk]
+in APPPATH\Controllers\TodoController.php on line 104.
+ 1 APPPATH\Controllers\TodoController.php(104): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ids"', 'C:\\xampp\\htdocs\\post\\app\\Controllers\\TodoController.php', 104)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->markDoneBulk()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\post\\public\\index.php')
+CRITICAL - 2026-02-15 11:35:31 --> ErrorException: Undefined array key "deleteIds"
+[Method: POST, Route: todo/delete-bulk]
+in APPPATH\Controllers\TodoController.php on line 122.
+ 1 APPPATH\Controllers\TodoController.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "deleteIds"', 'C:\\xampp\\htdocs\\post\\app\\Controllers\\TodoController.php', 122)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->deleteBulk()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\post\\public\\index.php')
+CRITICAL - 2026-02-15 11:35:42 --> ErrorException: Undefined array key "deleteIds"
+[Method: POST, Route: todo/delete-bulk]
+in APPPATH\Controllers\TodoController.php on line 122.
+ 1 APPPATH\Controllers\TodoController.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "deleteIds"', 'C:\\xampp\\htdocs\\post\\app\\Controllers\\TodoController.php', 122)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->deleteBulk()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\post\\public\\index.php')
