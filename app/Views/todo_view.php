@@ -110,6 +110,15 @@
             });
         }
 
+        function checkBox() {
+            const checkB = document.querySelectorAll('.task-checkbox:checked');
+
+            if (checkB.length === 0) {
+                document.
+            }
+
+        }
+
         function markDone() {
             const checkboxes = document.querySelectorAll('.task-checkbox:checked');
             if (checkboxes.length === 0) {
