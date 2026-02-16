@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class TodoModel extends Model
 {
-    protected $table            = 'todos';
+    protected $table            = 'todo';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';

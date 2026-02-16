@@ -14,3 +14,4 @@ $routes->put('/todo/update/(:num)', 'TodoController::update/$1');
 // $routes->get('/todo/mark-done/(:num)', 'TodoController::markDone/$1');
 $routes->post('/todo/mark-done-bulk', 'TodoController::markDoneBulk');
 $routes->post('/todo/delete-bulk', 'TodoController::deleteBulk');
+$routes->post('/todo/save-task-bulk', 'TodoController::storeBulkTask');

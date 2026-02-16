@@ -21,6 +21,28 @@ class TodoController extends BaseController
         return $this->response->setJSON($data);
     }
 
+    public function storeBulkTask()
+    {
+        $model = new TodoModel();
+
+        $data = $this->request->getJSON(true);
+        $tasks = $data['tasks'];
+
+        if (count($tasks) < 0) {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'No task added'
+            ]);
+        }
+        foreach ($tasks as $task) {
+            $model->insert(['task' => $task]);
+        }
+
+        return $this->response->setJSON([
+            'status' => 'success',
+            'message' => 'Task(s) added successfully'
+        ]);
+    }
     public function fetchById($id)
     {
         $model = new TodoModel();
@@ -92,7 +114,6 @@ class TodoController extends BaseController
             'status' => 'success',
             'message' => 'Task marked done successfully'
         ]);
-
     }
 
     public function markDoneBulk()
@@ -119,13 +140,12 @@ class TodoController extends BaseController
         $model = new TodoModel();
         $data = $this->request->getJSON(true);
 
-        if(count($data['ids']) < 0)
-            {
-                return $this->response->setJSON([
-                    'status' => 'error',
-                    'message' => 'No task(s) selected'
-                ]);
-            }
+        if (count($data['ids']) < 0) {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'No task(s) selected'
+            ]);
+        }
 
         $model->whereIn('id', $data['ids'])->delete();
 
