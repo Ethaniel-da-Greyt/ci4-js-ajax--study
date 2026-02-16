@@ -55,8 +55,8 @@
 
 
         <div class="float-end mb-2 d-flex gap-2">
-            <button onclick="markDone()" class="btn btn-success">Mark as Done</button>
-            <button onclick="deleteChecked()" class="btn btn-danger">Delete Checked Task</button>
+            <button onclick="markDone()" id="markDoneBtn" class="btn btn-success">Mark as Done</button>
+            <button onclick="deleteChecked()" id="deleteCheckBtn" class="btn btn-danger">Delete Checked Task</button>
         </div>
     </div>
 
@@ -114,7 +114,7 @@
             const checkB = document.querySelectorAll('.task-checkbox:checked');
 
             if (checkB.length === 0) {
-                document.
+                document.getElementById() //Wla pani nahuman
             }
 
         }
