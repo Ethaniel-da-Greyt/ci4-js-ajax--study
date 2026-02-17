@@ -16,6 +16,12 @@ class TodoController extends BaseController
     public function fetchAll()
     {
         $model = new TodoModel();
+        $search = $this->request->getGet('search');
+
+        if($search)
+        {
+            $model->like('task', $search);
+        }
         $data = $model->findAll();
 
         return $this->response->setJSON($data);

@@ -37,6 +37,10 @@
         <div class="card mt-3 p-2 mb-2">
             <div class="card-body">
                 <h5 class="card-title">Todo Lists</h5>
+                <input type="text" 
+                       class="form-control border border-1 border-primary" 
+                       placeholder="Search your task here..."
+                       id="searchInput">
             </div>
 
             <table class="container table table-striped table-responsive">
@@ -54,7 +58,7 @@
         </div>
 
 
-        <div class="float-end mb-2 d-flex gap-2">
+        <div class="float-end mb-2 d-flex gap-2 check-options">
             <button onclick="markDone()" id="markDoneBtn" class="btn btn-success">Mark as Done</button>
             <button onclick="deleteChecked()" id="deleteCheckBtn" class="btn btn-danger">Delete Checked Task</button>
         </div>
@@ -81,10 +85,14 @@
         </div>
     </div>
 
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         function loadTasks() {
-            fetch('/todo/fetch-all').then(response => response.json()).then(data => {
+            let search = document.getElementById('searchInput').value;
+
+            fetch(`/todo/fetch-all?search=${search}`)
+            .then(response => response.json()).then(data => {
                 const tbody = document.getElementById('taskTable');
 
                 tbody.innerHTML = '';
@@ -106,17 +114,26 @@
                     `;
 
                     tbody.appendChild(tr);
-                })
+                });
+
+                document.querySelectorAll('.task-checkbox').forEach(checkbox => {
+                    checkbox.addEventListener('change', checkBox);
+                });
+
+                checkBox();
             });
         }
 
         function checkBox() {
             const checkB = document.querySelectorAll('.task-checkbox:checked');
 
-            if (checkB.length === 0) {
-                document.getElementById() //Wla pani nahuman
-            }
+            // const hideBtn = document.querySelectorAll('#markDoneBtn #deleteCheckBtn');
+            // const markBtn = document.getElementById('markDoneBtn');
+            // const deleteBulk = document.getElementById('deleteCheckBtn');
 
+            const checkBtnOpt = document.querySelector('.check-options');
+
+            checkB.length === 0 ? checkBtnOpt.classList.add('d-none') : checkBtnOpt.classList.remove('d-none');
         }
 
         function markDone() {
@@ -259,6 +276,7 @@
                 });
             });
 
+            checkBox();
             toggleRemoveBtn();
             loadTasks();
         });
@@ -457,6 +475,14 @@
         // document.addEventListener('DOMContentLoaded', () => {
         //     loadTasks();
         // });
+
+        let debounce;
+        document.getElementById('searchInput').addEventListener('input', ()=> {
+            clearTimeout(debounce);
+            debounce = setTimeout(() => {
+                loadTasks();
+            }, 300);
+        });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
