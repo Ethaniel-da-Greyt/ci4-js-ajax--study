@@ -37,10 +37,16 @@
         <div class="card mt-3 p-2 mb-2">
             <div class="card-body">
                 <h5 class="card-title">Todo Lists</h5>
-                <input type="text" 
-                       class="form-control border border-1 border-primary" 
-                       placeholder="Search your task here..."
-                       id="searchInput">
+                <input type="text"
+                    class="form-control border border-1 border-primary"
+                    placeholder="Search your task here..."
+                    id="searchInput">
+
+                <select name="" id="statusFilter" class="form-control">
+                    <option value="">All</option>
+                    <option value="1">Done</option>
+                    <option value="0">Not Done</option>
+                </select>
             </div>
 
             <table class="container table table-striped table-responsive">
@@ -90,19 +96,20 @@
     <script>
         function loadTasks() {
             let search = document.getElementById('searchInput').value;
+            let status = document.getElementById('statusFilter').value;
 
-            fetch(`/todo/fetch-all?search=${search}`)
-            .then(response => response.json()).then(data => {
-                const tbody = document.getElementById('taskTable');
+            fetch(`/todo/fetch-all?search=${search}&status=${status}`)
+                .then(response => response.json()).then(data => {
+                    const tbody = document.getElementById('taskTable');
 
-                tbody.innerHTML = '';
+                    tbody.innerHTML = '';
 
-                data.forEach(task => {
-                    const tr = document.createElement('tr');
-                    tr.setAttribute('id', 'row-' + task.id);
-                    let statusBadge = task.is_done == 0 ? `<span class="badge text-bg-danger">Not Done</span>` : `<span class="badge text-bg-success">Done</span>`
-                    // let checkB = task.is_done == 0 ? `<td><input type="checkbox" class="task-checkbox" value="${task.id}"></td>` : '<td></td>';
-                    tr.innerHTML = `
+                    data.forEach(task => {
+                        const tr = document.createElement('tr');
+                        tr.setAttribute('id', 'row-' + task.id);
+                        let statusBadge = task.is_done == 0 ? `<span class="badge text-bg-danger">Not Done</span>` : `<span class="badge text-bg-success">Done</span>`
+                        // let checkB = task.is_done == 0 ? `<td><input type="checkbox" class="task-checkbox" value="${task.id}"></td>` : '<td></td>';
+                        tr.innerHTML = `
                     <td><input type="checkbox" class="task-checkbox" value="${task.id}"></td>
                     <td>${task.id}</td>
                     <td>${task.task}</td>
@@ -113,15 +120,15 @@
                     </td>
                     `;
 
-                    tbody.appendChild(tr);
-                });
+                        tbody.appendChild(tr);
+                    });
 
-                document.querySelectorAll('.task-checkbox').forEach(checkbox => {
-                    checkbox.addEventListener('change', checkBox);
-                });
+                    document.querySelectorAll('.task-checkbox').forEach(checkbox => {
+                        checkbox.addEventListener('change', checkBox);
+                    });
 
-                checkBox();
-            });
+                    checkBox();
+                });
         }
 
         function checkBox() {
@@ -477,11 +484,15 @@
         // });
 
         let debounce;
-        document.getElementById('searchInput').addEventListener('input', ()=> {
+        document.getElementById('searchInput').addEventListener('input', () => {
             clearTimeout(debounce);
             debounce = setTimeout(() => {
                 loadTasks();
             }, 300);
+        });
+
+        document.getElementById('statusFilter').addEventListener('change', () => {
+            loadTasks();
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>

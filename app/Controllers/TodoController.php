@@ -17,10 +17,13 @@ class TodoController extends BaseController
     {
         $model = new TodoModel();
         $search = $this->request->getGet('search');
+        $status = $this->request->getGet('status');
 
-        if($search)
-        {
+        if ($search) {
             $model->like('task', $search);
+        }
+        if ($status !== '') {
+            $model->where('is_done', $status);
         }
         $data = $model->findAll();
 
