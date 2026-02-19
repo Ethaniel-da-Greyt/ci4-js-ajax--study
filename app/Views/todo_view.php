@@ -68,8 +68,11 @@
             <button onclick="markDone()" id="markDoneBtn" class="btn btn-success">Mark as Done</button>
             <button onclick="deleteChecked()" id="deleteCheckBtn" class="btn btn-danger">Delete Checked Task</button>
         </div>
-    </div>
 
+    </div>
+    <nav class="mt-3">
+        <ul class="pagination justify-content-center" id="pagination"></ul>
+    </nav>
     <div class="modal fade" id="updateModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -94,35 +97,73 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+        let currentPage = 1;
+        let totalPages = 1;
+
+        function renderPagination(total) {
+            totalPages = total;
+            let html = '';
+
+            // Previous
+            html += `
+                <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+                    <a class="page-link" href="#" onclick="goToPage(${currentPage - 1})">Previous</a>
+                </li>`;
+
+            // Page numbers
+            for (let page = 1; page <= totalPages; page++) {
+                html += `
+                    <li class="page-item ${page === currentPage ? 'active' : ''}">
+                        <a class="page-link" href="#" onclick="goToPage(${page})">${page}</a>
+                    </li>`;
+            }
+
+            // Next
+            html += `
+                <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+                    <a class="page-link" href="#" onclick="goToPage(${currentPage + 1})">Next</a>
+                </li>`;
+
+            document.getElementById('pagination').innerHTML = html;
+        }
+
+        function goToPage(page) {
+            if (page < 1 || page > totalPages) return;
+
+            currentPage = page;
+
+            loadTasks();
+        }
+
         function loadTasks() {
             let search = document.getElementById('searchInput').value;
             let status = document.getElementById('statusFilter').value;
 
-            fetch(`/todo/fetch-all?search=${search}&status=${status}`)
-                .then(response => response.json()).then(data => {
+            fetch(`/todo/fetch-all?search=${search}&status=${status}&page=${currentPage}`)
+                .then(response => response.json()).then(res => {
                     const tbody = document.getElementById('taskTable');
 
                     tbody.innerHTML = '';
 
-                    data.forEach(task => {
+                    res.data.forEach(task => {
                         const tr = document.createElement('tr');
                         tr.setAttribute('id', 'row-' + task.id);
                         let statusBadge = task.is_done == 0 ? `<span class="badge text-bg-danger">Not Done</span>` : `<span class="badge text-bg-success">Done</span>`
-                        // let checkB = task.is_done == 0 ? `<td><input type="checkbox" class="task-checkbox" value="${task.id}"></td>` : '<td></td>';
                         tr.innerHTML = `
-                    <td><input type="checkbox" class="task-checkbox" value="${task.id}"></td>
-                    <td>${task.id}</td>
-                    <td>${task.task}</td>
-                    <td>${statusBadge}</td>
-                    <td>
-                        <button onclick="deleteTask(${task.id})" class="btn btn-danger">Delete</button>
-                        <button onclick="openUpdateModal(${task.id})" class="btn btn-info">Update</button>
-                    </td>
-                    `;
+                            <td><input type="checkbox" class="task-checkbox" value="${task.id}"></td>
+                            <td>${task.id}</td>
+                            <td>${task.task}</td>
+                            <td>${statusBadge}</td>
+                            <td>
+                                <button onclick="deleteTask(${task.id})" class="btn btn-danger">Delete</button>
+                                <button onclick="openUpdateModal(${task.id})" class="btn btn-info">Update</button>
+                            </td>
+                            `;
 
                         tbody.appendChild(tr);
                     });
 
+                    renderPagination(res.total_pages);
                     document.querySelectorAll('.task-checkbox').forEach(checkbox => {
                         checkbox.addEventListener('change', checkBox);
                     });
@@ -487,11 +528,13 @@
         document.getElementById('searchInput').addEventListener('input', () => {
             clearTimeout(debounce);
             debounce = setTimeout(() => {
+                currentPage = 1;
                 loadTasks();
             }, 300);
         });
 
         document.getElementById('statusFilter').addEventListener('change', () => {
+            currentPage = 1;
             loadTasks();
         });
     </script>

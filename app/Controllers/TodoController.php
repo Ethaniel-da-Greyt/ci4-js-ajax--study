@@ -18,16 +18,29 @@ class TodoController extends BaseController
         $model = new TodoModel();
         $search = $this->request->getGet('search');
         $status = $this->request->getGet('status');
+        $page = (int) ($this->request->getGet('page') ?? 1);
 
-        if ($search) {
+        $limit = 5;
+        $offset = ($page - 1) * $limit;
+
+
+        if (!empty($search)) {
             $model->like('task', $search);
         }
         if ($status !== '') {
             $model->where('is_done', $status);
         }
-        $data = $model->findAll();
 
-        return $this->response->setJSON($data);
+        $totalRows = $model->countAllResults(false);
+        $tasks = $model->findAll($limit, $offset);
+        $totalPages = ceil($totalRows / $limit);
+
+        return $this->response->setJSON(
+            [
+                'data' => $tasks,
+                'total_pages' => $totalPages
+            ]
+        );
     }
 
     public function storeBulkTask()
