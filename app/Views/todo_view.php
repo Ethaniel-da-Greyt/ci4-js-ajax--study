@@ -18,13 +18,13 @@
                 <div class="" id="taskInput">
                     <div class="input-group mb-2">
                         <input type="text" class="form-control task-input" placeholder="Enter your task">
-                        <button class="btn btn-danger btn-close remove-btn btn-xl" onclick="removeTask(this)"></button>
+                        <button class="btn btn-close removeTask-btn"></button>
                     </div>
                 </div>
 
                 <div class="d-flex gap-2">
-                    <button class="btn btn-secondary" onclick="addTaskInput()">+ Add another task</button>
-                    <button class="btn btn-primary" onclick="addTask()">Save Task(s)</button>
+                    <button class="btn btn-secondary" id="addTaskBtn">+ Add another task</button>
+                    <button class="btn btn-primary" id="submitTasks">Save Task(s)</button>
                 </div>
             </div>
         </div>
@@ -64,10 +64,10 @@
         </div>
 
 
-        <div class="mb-2 text-end check-options">
+        <div class="mb-2 text-end check-options d-none">
             <div class="d-inline-flex gap-2">
-                <button onclick="markDone()" id="markDoneBtn" class="btn btn-success">Mark as Done</button>
-                <button onclick="deleteChecked()" id="deleteCheckBtn" class="btn btn-danger">Delete</button>
+                <button id="markDoneBtn" class="btn btn-success">Mark as Done</button>
+                <button id="deleteCheckBtn" class="btn btn-danger">Delete</button>
             </div>
         </div>
 

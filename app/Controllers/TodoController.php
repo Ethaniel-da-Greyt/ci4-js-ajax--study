@@ -20,7 +20,7 @@ class TodoController extends BaseController
         $status = $this->request->getGet('status');
         $page = (int) ($this->request->getGet('page') ?? 1);
 
-        $limit = 5;
+        $limit = 15;
         $offset = ($page - 1) * $limit;
 
 
@@ -69,6 +69,8 @@ class TodoController extends BaseController
     {
         $model = new TodoModel();
         $data = $model->where('id', $id)->first();
+
+        if (empty($data)) return $this->response->setJSON(['status' => 'error', 'message' => 'No record found.']);
 
         return $this->response->setJSON([
             'task' => $data,
@@ -150,10 +152,12 @@ class TodoController extends BaseController
             ]);
         }
 
+
         $model->whereIn('id', $data['ids'])->set(['is_done' => 1])->update();
 
         return $this->response->setJSON([
-            "status" => "success"
+            "status" => "success",
+            "message" => "Task(s) marked Done"
         ]);
     }
 

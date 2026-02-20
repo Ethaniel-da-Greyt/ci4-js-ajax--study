@@ -7,7 +7,7 @@ export function renderTasks(tasks) {
       let tr = document.createElement("tr");
       tr.setAttribute("id", "row-" + task.id);
       const statusBadge =
-        task.is_done == 1
+        task.is_done == 0
           ? `<span class="badge text-bg-danger">Not Done</span>`
           : `<span class="badge text-bg-success">Done</span>`;
 
@@ -16,14 +16,18 @@ export function renderTasks(tasks) {
                         <td>${task.task}</td>
                         <td>${statusBadge}</td>
                         <td>
-                            <button onclick="openUpdateModal(${task.id})" class="btn btn-info">Update</button>
+                            <button data-task-id="${task.id}" class="btn btn-info updateBtn">Update</button>
                         </td>`;
       tbody.appendChild(tr);
     });
-  }else{
+  } else {
     let tr = document.createElement("tr");
     tr.innerHTML = `<td colspan="5"><p>No Task found.</p></td>`;
 
     tbody.appendChild(tr);
   }
 }
+
+// export function addInputTask() {
+
+// }

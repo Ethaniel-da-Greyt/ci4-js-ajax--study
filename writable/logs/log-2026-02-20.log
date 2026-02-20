@@ -1,0 +1,378 @@
+ERROR - 2026-02-20 00:02:10 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in D:\USER\Desktop\ci4-ajax\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 D:\USER\Desktop\ci4-ajax\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'test', 3306, '', 0)
+#1 D:\USER\Desktop\ci4-ajax\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\USER\Desktop\ci4-ajax\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\USER\Desktop\ci4-ajax\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 D:\USER\Desktop\ci4-ajax\system\Model.php(676): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 D:\USER\Desktop\ci4-ajax\app\Controllers\TodoController.php(34): CodeIgniter\Model->countAllResults(false)
+#6 D:\USER\Desktop\ci4-ajax\system\CodeIgniter.php(933): App\Controllers\TodoController->fetchAll()
+#7 D:\USER\Desktop\ci4-ajax\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+#8 D:\USER\Desktop\ci4-ajax\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\USER\Desktop\ci4-ajax\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#10 D:\USER\Desktop\ci4-ajax\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 D:\USER\Desktop\ci4-ajax\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 D:\USER\Desktop\ci4-ajax\system\rewrite.php(44): require_once('D:\\USER\\Desktop...')
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in D:\USER\Desktop\ci4-ajax\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 D:\USER\Desktop\ci4-ajax\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\USER\Desktop\ci4-ajax\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\USER\Desktop\ci4-ajax\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#3 D:\USER\Desktop\ci4-ajax\system\Model.php(676): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#4 D:\USER\Desktop\ci4-ajax\app\Controllers\TodoController.php(34): CodeIgniter\Model->countAllResults(false)
+#5 D:\USER\Desktop\ci4-ajax\system\CodeIgniter.php(933): App\Controllers\TodoController->fetchAll()
+#6 D:\USER\Desktop\ci4-ajax\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+#7 D:\USER\Desktop\ci4-ajax\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\USER\Desktop\ci4-ajax\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#9 D:\USER\Desktop\ci4-ajax\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\USER\Desktop\ci4-ajax\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\USER\Desktop\ci4-ajax\system\rewrite.php(44): require_once('D:\\USER\\Desktop...')
+#12 {main}
+CRITICAL - 2026-02-20 00:02:10 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: todo/fetch-all]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `todos`', [], false)
+ 3 SYSTEMPATH\Model.php(676): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 4 APPPATH\Controllers\TodoController.php(34): CodeIgniter\Model->countAllResults(false)
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->fetchAll()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
+CRITICAL - 2026-02-20 02:34:02 --> ErrorException: Undefined array key "ids"
+[Method: POST, Route: todo/mark-done-bulk]
+in APPPATH\Controllers\TodoController.php on line 148.
+ 1 APPPATH\Controllers\TodoController.php(148): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ids"', 'D:\\USER\\Desktop\\ci4-ajax\\app\\Controllers\\TodoController.php', 148)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->markDoneBulk()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
+CRITICAL - 2026-02-20 02:34:14 --> ErrorException: Undefined array key "ids"
+[Method: POST, Route: todo/mark-done-bulk]
+in APPPATH\Controllers\TodoController.php on line 148.
+ 1 APPPATH\Controllers\TodoController.php(148): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ids"', 'D:\\USER\\Desktop\\ci4-ajax\\app\\Controllers\\TodoController.php', 148)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->markDoneBulk()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
+CRITICAL - 2026-02-20 02:35:59 --> ErrorException: Undefined array key "ids"
+[Method: POST, Route: todo/mark-done-bulk]
+in APPPATH\Controllers\TodoController.php on line 148.
+ 1 APPPATH\Controllers\TodoController.php(148): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ids"', 'D:\\USER\\Desktop\\ci4-ajax\\app\\Controllers\\TodoController.php', 148)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->markDoneBulk()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
+CRITICAL - 2026-02-20 02:36:51 --> ErrorException: Undefined array key "ids"
+[Method: POST, Route: todo/mark-done-bulk]
+in APPPATH\Controllers\TodoController.php on line 148.
+ 1 APPPATH\Controllers\TodoController.php(148): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ids"', 'D:\\USER\\Desktop\\ci4-ajax\\app\\Controllers\\TodoController.php', 148)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->markDoneBulk()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
+CRITICAL - 2026-02-20 02:37:46 --> ErrorException: Undefined array key "ids"
+[Method: POST, Route: todo/mark-done-bulk]
+in APPPATH\Controllers\TodoController.php on line 148.
+ 1 APPPATH\Controllers\TodoController.php(148): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ids"', 'D:\\USER\\Desktop\\ci4-ajax\\app\\Controllers\\TodoController.php', 148)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->markDoneBulk()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
+CRITICAL - 2026-02-20 02:38:06 --> ErrorException: Undefined array key "ids"
+[Method: POST, Route: todo/mark-done-bulk]
+in APPPATH\Controllers\TodoController.php on line 148.
+ 1 APPPATH\Controllers\TodoController.php(148): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ids"', 'D:\\USER\\Desktop\\ci4-ajax\\app\\Controllers\\TodoController.php', 148)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->markDoneBulk()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
+CRITICAL - 2026-02-20 02:40:19 --> ErrorException: Undefined array key "ids"
+[Method: POST, Route: todo/mark-done-bulk]
+in APPPATH\Controllers\TodoController.php on line 148.
+ 1 APPPATH\Controllers\TodoController.php(148): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ids"', 'D:\\USER\\Desktop\\ci4-ajax\\app\\Controllers\\TodoController.php', 148)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->markDoneBulk()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
+CRITICAL - 2026-02-20 02:40:19 --> ErrorException: Undefined array key "ids"
+[Method: POST, Route: todo/mark-done-bulk]
+in APPPATH\Controllers\TodoController.php on line 148.
+ 1 APPPATH\Controllers\TodoController.php(148): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ids"', 'D:\\USER\\Desktop\\ci4-ajax\\app\\Controllers\\TodoController.php', 148)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->markDoneBulk()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
+CRITICAL - 2026-02-20 02:40:39 --> ErrorException: Undefined array key "ids"
+[Method: POST, Route: todo/mark-done-bulk]
+in APPPATH\Controllers\TodoController.php on line 148.
+ 1 APPPATH\Controllers\TodoController.php(148): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ids"', 'D:\\USER\\Desktop\\ci4-ajax\\app\\Controllers\\TodoController.php', 148)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->markDoneBulk()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
+CRITICAL - 2026-02-20 02:44:41 --> ErrorException: Undefined array key "ids"
+[Method: POST, Route: todo/mark-done-bulk]
+in APPPATH\Controllers\TodoController.php on line 148.
+ 1 APPPATH\Controllers\TodoController.php(148): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ids"', 'D:\\USER\\Desktop\\ci4-ajax\\app\\Controllers\\TodoController.php', 148)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->markDoneBulk()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
+ERROR - 2026-02-20 03:43:42 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '))' at line 1 in D:\USER\Desktop\ci4-ajax\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\USER\Desktop\ci4-ajax\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `to...', 0)
+#1 D:\USER\Desktop\ci4-ajax\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `to...')
+#2 D:\USER\Desktop\ci4-ajax\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `to...')
+#3 D:\USER\Desktop\ci4-ajax\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `to...', Array, false)
+#4 D:\USER\Desktop\ci4-ajax\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\USER\Desktop\ci4-ajax\system\BaseModel.php(843): CodeIgniter\Model->doInsert(Array)
+#6 D:\USER\Desktop\ci4-ajax\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\USER\Desktop\ci4-ajax\app\Controllers\TodoController.php(60): CodeIgniter\Model->insert(Array)
+#8 D:\USER\Desktop\ci4-ajax\system\CodeIgniter.php(933): App\Controllers\TodoController->storeBulkTask()
+#9 D:\USER\Desktop\ci4-ajax\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+#10 D:\USER\Desktop\ci4-ajax\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\USER\Desktop\ci4-ajax\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 D:\USER\Desktop\ci4-ajax\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\USER\Desktop\ci4-ajax\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 D:\USER\Desktop\ci4-ajax\system\rewrite.php(44): require_once('D:\\USER\\Desktop...')
+#15 {main}
+CRITICAL - 2026-02-20 03:43:42 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '))' at line 1
+[Method: POST, Route: todo/save-task-bulk]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `todo` (`task`) VALUES (:task:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\TodoController.php(60): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->storeBulkTask()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
+CRITICAL - 2026-02-20 03:43:42 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '))' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `todo` (`task`) VALUES (())')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `todo` (`task`) VALUES (())')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `todo` (`task`) VALUES (:task:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\TodoController.php(60): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->storeBulkTask()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
+CRITICAL - 2026-02-20 03:43:42 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '))' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `todo` (`task`) VALUES (())', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `todo` (`task`) VALUES (())')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `todo` (`task`) VALUES (())')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `todo` (`task`) VALUES (:task:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\TodoController.php(60): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->storeBulkTask()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
+ERROR - 2026-02-20 03:44:41 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '))' at line 1 in D:\USER\Desktop\ci4-ajax\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\USER\Desktop\ci4-ajax\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `to...', 0)
+#1 D:\USER\Desktop\ci4-ajax\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `to...')
+#2 D:\USER\Desktop\ci4-ajax\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `to...')
+#3 D:\USER\Desktop\ci4-ajax\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `to...', Array, false)
+#4 D:\USER\Desktop\ci4-ajax\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\USER\Desktop\ci4-ajax\system\BaseModel.php(843): CodeIgniter\Model->doInsert(Array)
+#6 D:\USER\Desktop\ci4-ajax\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\USER\Desktop\ci4-ajax\app\Controllers\TodoController.php(60): CodeIgniter\Model->insert(Array)
+#8 D:\USER\Desktop\ci4-ajax\system\CodeIgniter.php(933): App\Controllers\TodoController->storeBulkTask()
+#9 D:\USER\Desktop\ci4-ajax\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+#10 D:\USER\Desktop\ci4-ajax\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\USER\Desktop\ci4-ajax\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 D:\USER\Desktop\ci4-ajax\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\USER\Desktop\ci4-ajax\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 D:\USER\Desktop\ci4-ajax\system\rewrite.php(44): require_once('D:\\USER\\Desktop...')
+#15 {main}
+CRITICAL - 2026-02-20 03:44:41 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '))' at line 1
+[Method: POST, Route: todo/save-task-bulk]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `todo` (`task`) VALUES (:task:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\TodoController.php(60): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->storeBulkTask()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
+CRITICAL - 2026-02-20 03:44:41 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '))' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `todo` (`task`) VALUES (())')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `todo` (`task`) VALUES (())')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `todo` (`task`) VALUES (:task:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\TodoController.php(60): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->storeBulkTask()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
+CRITICAL - 2026-02-20 03:44:41 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '))' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `todo` (`task`) VALUES (())', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `todo` (`task`) VALUES (())')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `todo` (`task`) VALUES (())')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `todo` (`task`) VALUES (:task:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\TodoController.php(60): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->storeBulkTask()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
+ERROR - 2026-02-20 03:44:41 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '))' at line 1 in D:\USER\Desktop\ci4-ajax\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\USER\Desktop\ci4-ajax\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `to...', 0)
+#1 D:\USER\Desktop\ci4-ajax\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `to...')
+#2 D:\USER\Desktop\ci4-ajax\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `to...')
+#3 D:\USER\Desktop\ci4-ajax\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `to...', Array, false)
+#4 D:\USER\Desktop\ci4-ajax\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\USER\Desktop\ci4-ajax\system\BaseModel.php(843): CodeIgniter\Model->doInsert(Array)
+#6 D:\USER\Desktop\ci4-ajax\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\USER\Desktop\ci4-ajax\app\Controllers\TodoController.php(60): CodeIgniter\Model->insert(Array)
+#8 D:\USER\Desktop\ci4-ajax\system\CodeIgniter.php(933): App\Controllers\TodoController->storeBulkTask()
+#9 D:\USER\Desktop\ci4-ajax\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+#10 D:\USER\Desktop\ci4-ajax\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\USER\Desktop\ci4-ajax\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 D:\USER\Desktop\ci4-ajax\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\USER\Desktop\ci4-ajax\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 D:\USER\Desktop\ci4-ajax\system\rewrite.php(44): require_once('D:\\USER\\Desktop...')
+#15 {main}
+CRITICAL - 2026-02-20 03:44:41 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '))' at line 1
+[Method: POST, Route: todo/save-task-bulk]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `todo` (`task`) VALUES (:task:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\TodoController.php(60): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->storeBulkTask()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
+CRITICAL - 2026-02-20 03:44:41 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '))' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `todo` (`task`) VALUES (())')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `todo` (`task`) VALUES (())')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `todo` (`task`) VALUES (:task:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\TodoController.php(60): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->storeBulkTask()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
+CRITICAL - 2026-02-20 03:44:41 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '))' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `todo` (`task`) VALUES (())', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `todo` (`task`) VALUES (())')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `todo` (`task`) VALUES (())')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `todo` (`task`) VALUES (:task:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\TodoController.php(60): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->storeBulkTask()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
+CRITICAL - 2026-02-20 03:45:24 --> ErrorException: Undefined array key "tasks"
+[Method: POST, Route: todo/save-task-bulk]
+in APPPATH\Controllers\TodoController.php on line 51.
+ 1 APPPATH\Controllers\TodoController.php(51): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "tasks"', 'D:\\USER\\Desktop\\ci4-ajax\\app\\Controllers\\TodoController.php', 51)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->storeBulkTask()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
+CRITICAL - 2026-02-20 03:49:37 --> ErrorException: Undefined array key "tasks"
+[Method: POST, Route: todo/save-task-bulk]
+in APPPATH\Controllers\TodoController.php on line 51.
+ 1 APPPATH\Controllers\TodoController.php(51): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "tasks"', 'D:\\USER\\Desktop\\ci4-ajax\\app\\Controllers\\TodoController.php', 51)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TodoController->storeBulkTask()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TodoController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\USER\\Desktop\\ci4-ajax\\public\\index.php')
