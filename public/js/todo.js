@@ -33,62 +33,8 @@ function goToPage(page) {
   loadTasks();
 }
 
-async function loadTasks() {
-  try {
-    let search = document.getElementById("searchInput").value;
-    let status = document.getElementById("statusFilter").value;
-
-    const response = await fetch(
-      `/todo/fetch-all?search=${search}&status=${status}&page=${currentPage}`,
-    );
-    const res = await response.json();
-
-    if (!response.ok) {
-      throw new Error("Network Response not Okay");
-    }
-
-    const tbody = document.getElementById("taskTable");
-    tbody.innerHTML = "";
-
-    res.data.forEach((task) => {
-      const tr = document.createElement("tr");
-      tr.setAttribute("id", "row-" + task.id);
-      let statusBadge =
-        task.is_done == 0
-          ? `<span class="badge text-bg-danger">Not Done</span>`
-          : `<span class="badge text-bg-success">Done</span>`;
-
-      tr.innerHTML = `<td><input type="checkbox" class="task-checkbox" value="${task.id}"></td>
-                        <td>${task.id}</td>
-                        <td>${task.task}</td>
-                        <td>${statusBadge}</td>
-                        <td>
-                            <button onclick="deleteTask(${task.id})" class="btn btn-danger">Delete</button>
-                            <button onclick="openUpdateModal(${task.id})" class="btn btn-info">Update</button>
-                        </td>`;
-
-      tbody.appendChild(tr);
-    });
-
-    renderPagination(res.total_pages);
-    document.querySelectorAll(".task-checkbox").forEach((checkbox) => {
-      checkbox.addEventListener("change", checkBox);
-    });
-
-    checkBox();
-  } catch (error) {
-    console.error('Failed to load the tasks: ', error);
-    Swal.fire('success', 'Failed to load Tasks', 'error');
-  }
-}
-
 function checkBox() {
   const checkB = document.querySelectorAll(".task-checkbox:checked");
-
-  // const hideBtn = document.querySelectorAll('#markDoneBtn #deleteCheckBtn');
-  // const markBtn = document.getElementById('markDoneBtn');
-  // const deleteBulk = document.getElementById('deleteCheckBtn');
-
   const checkBtnOpt = document.querySelector(".check-options");
 
   checkB.length === 0

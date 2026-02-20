@@ -15,6 +15,7 @@ export async function loadTasks() {
       filter,
       window.currentPage,
     );
+
     if (response.data.status == "error")
       Swal.fire("Error", response.data.message, "error");
 
