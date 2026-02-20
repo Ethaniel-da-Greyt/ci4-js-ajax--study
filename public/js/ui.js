@@ -28,6 +28,22 @@ export function renderTasks(tasks) {
   }
 }
 
-// export function addInputTask() {
+export function renderPagination(totalPages) {
+  const pagination = document.getElementById("pagination");
+  pagination.innerHTML = "";
 
-// }
+  if (totalPages <= 1) return;
+
+  for (let i = 1; i <= totalPages; i++) {
+    const li = document.createElement("li");
+    li.className = `page-item ${i === window.currentPage ? "active" : ""}`;
+
+    const button = document.createElement("button");
+    button.className = "page-link";
+    button.textContent = i;
+    button.dataset.page = i;
+
+    li.appendChild(button);
+    pagination.appendChild(li);
+  }
+}

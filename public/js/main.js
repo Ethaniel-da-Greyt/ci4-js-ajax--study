@@ -19,12 +19,13 @@ export async function loadTasks() {
       Swal.fire("Error", response.data.message, "error");
 
     UI.renderTasks(response.data);
+    UI.renderPagination(response.total_pages);
   } catch (error) {
-    UI.showAlert("Error", error.message, "error");
+    Swal.fire("Error", error.message, "error");
   }
 
   toggleRemoveBtn();
-  attachEvents();
+  //   attachEvents();
 }
 
 // FOR DELETE API
@@ -114,5 +115,6 @@ export async function submitTasks(tasks) {
 
 // LOAD LOADTASK FUNCTION
 document.addEventListener("DOMContentLoaded", () => {
+  attachEvents();
   loadTasks();
 });

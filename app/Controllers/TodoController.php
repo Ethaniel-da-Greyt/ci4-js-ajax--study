@@ -20,7 +20,7 @@ class TodoController extends BaseController
         $status = $this->request->getGet('status');
         $page = (int) ($this->request->getGet('page') ?? 1);
 
-        $limit = 15;
+        $limit = 5;
         $offset = ($page - 1) * $limit;
 
 

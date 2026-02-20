@@ -109,6 +109,13 @@ export function attachEvents() {
 
     submitTasks(tasks);
   });
+
+  document.getElementById("pagination").addEventListener("click", (e) => {
+    if (e.target.classList.contains("page-link")) {
+      window.currentPage = parseInt(e.target.dataset.page);
+      loadTasks();
+    }
+  });
 }
 
 // ToggleRemove function
